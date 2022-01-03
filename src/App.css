@@ -1,9 +1,0 @@
-.main{
-    display:flex;
-    flex-direction:'row';
-}
-
-.crd{
- width:50%;
- padding:2vh 10%;
-}

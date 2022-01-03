@@ -1,7 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import moment from 'moment';
 import 'moment-timezone';
-import './App.css';
+import { 
+  Heading,
+  Box,
+  Flex,
+  Text,
+  Input
+ } from "@chakra-ui/react";  
+
 
 const date = new Date();
 console.log(date)
@@ -9,6 +16,7 @@ console.log(date)
 const india = moment().tz( "Asia/Kolkata");
 const indianDate = `${india.date()}/${india.month()}/${india.year()}`
 const indianTime = `${india.hour()}:${india.minute()}`
+
 
 const us = moment().tz( "America/Adak");
 const usDate = `${us.date()}/${us.month()}/${us.year()}`
@@ -52,37 +60,45 @@ function App() {
   }
 
   return (
-    <>
-    <div className = "main">
-    <div className = "crd">
-      <h2>Current Time- IST</h2>
-      <h3>Date : {indianDate}</h3>
-      <h3>Time : {TimeIn}</h3>
-      <h3> Enter the time you want to convert <input type="time" onChange={onInputChange}></input> </h3>
-    </div>
+  <>
+      <Heading textAlign="center" padding="5vh 0" bg="#D5DBDB">Time-Zone Updating app</Heading>
+      <Flex justifyContent="center" align="center">
+    <Box  padding="8vh 5%" border="1px solid black" margin="5vh 7%">
+      <Heading fontSize="22" marginBottom="1vh">Current Time- IST</Heading>
+      <Text>Date : {indianDate}</Text>
+      <Text>Time : {TimeIn}</Text>
+      <Text fontSize="18" marginTop="1vh"> Enter the time you want to convert 
+      <Input width="25%" type="time" onChange={onInputChange}></Input> 
+      </Text>
+    </Box>
 
-    <div className = "crd">
-      <h2>US</h2>
-      <h3>Date : {usDate}</h3>
-      <h3>Time : {TimeUs}</h3>
-    </div>
+    </Flex>
 
-    </div>
+    <Flex justifyContent="center" align="center">
 
-    <div className = "main">
-    <div className = "crd">
-      <h2>Europe</h2>
-      <h3>Date : {europeDate}</h3>
-      <h3>Time : {TimeEu}</h3>
-    </div>
-    <div className = "crd">
-      <h2>Bangkok</h2>
-      <h3>Date : {bangkokDate}</h3>
-      <h3>Time : {TimeBk}</h3>
-    </div>
+    <Box  padding="8vh 5%" border="1px solid black" margin="4vh 4%" bg="#f5f6f7">
+      <Heading fontSize="22" marginBottom="1vh">US</Heading>
+      <Text>Date : {usDate}</Text>
+      <Text>Time : {TimeUs}</Text>
+    </Box>
 
-    </div>
+    <Box  padding="8vh 5%" border="1px solid black" margin="4vh 4%" bg="#f5f6f7">
+      <Heading fontSize="22" marginBottom="1vh">Europe</Heading>
+      <Text>Date : {europeDate}</Text>
+      <Text>Time : {TimeEu}</Text>
+    </Box>
+
+    <Box  padding="8vh 5%" border="1px solid black" margin="4vh 4%" bg="#f5f6f7">
+      <Heading fontSize="22" marginBottom="1vh">Bangkok</Heading>
+      <Text>Date : {bangkokDate}</Text>
+      <Text>Time : {TimeBk}</Text>
+    </Box>
+
+    </Flex>
+
     </>
+    
+    
   );
 }
 
